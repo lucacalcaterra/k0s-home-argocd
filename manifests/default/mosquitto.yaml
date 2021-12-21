@@ -29,7 +29,7 @@ spec:
             accessMode: ReadWriteOnce
             size: 100Mi
 
-    path: stable/mosquitto
+    path: charts/stable/mosquitto
     targetRevision: HEAD
     repoURL: https://github.com/k8s-at-home
   syncPolicy:
