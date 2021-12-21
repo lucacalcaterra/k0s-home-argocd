@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mosquitto
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      values: |
+        persistence:
+          # -- Configure a persistent volume to place mosquitto data in.
+          # When enabled, this enables `persistence` and `persistence_location` in the mosquitto config.
+          # @default -- See values.yaml
+          data:
+            enabled: true
+            mountPath: /mosquitto/data
+            accessMode: ReadWriteOnce
+            size: 1Gi
+          # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
+          # When enabled, this gets set as `include_dir` in the mosquitto config.
+          # @default -- See values.yaml
+          configinc:
+            enabled: true
+            mountPath: /mosquitto/configinc
+            accessMode: ReadWriteOnce
+            size: 100Mi
+
+    path: mosquitto
+    targetRevision: HEAD
+    repoURL: https://k8s-at-home.com/charts/
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: -1 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 10m # the maximum amount of time allowed for the backoff strategy
