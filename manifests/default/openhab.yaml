@@ -19,7 +19,7 @@ spec:
             enabled: true
             accessMode: ReadWriteOnce
             size: 1Gi
-            persistentVolumeReclaimPolicy: Retain
+            # persistentVolumeReclaimPolicy: Retain
         env:
           TZ: "Europe/Rome"
           USER_ID: 1000
