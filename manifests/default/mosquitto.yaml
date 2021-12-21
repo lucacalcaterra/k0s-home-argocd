@@ -31,7 +31,7 @@ spec:
 
     path: stable/mosquitto
     targetRevision: HEAD
-    repoURL: https://k8s-at-home.com/charts/
+    repoURL: https://github.com/k8s-at-home
   syncPolicy:
     automated:
       prune: true
