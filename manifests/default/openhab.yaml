@@ -14,12 +14,12 @@ spec:
         image:
           repository: openhab/openhab
           tag: 3.2.0
-        persistence:
-          data:
-            enabled: true
-            accessMode: ReadWriteOnce
-            size: 1Gi
-            # persistentVolumeReclaimPolicy: Retain
+        # persistence:
+        #   data:
+        #     enabled: true
+        #     accessMode: ReadWriteOnce
+        #     size: 1Gi
+        #     # persistentVolumeReclaimPolicy: Retain
         env:
           TZ: "Europe/Rome"
           USER_ID: 1000
