@@ -8,16 +8,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: { { .Values.spec.project } }
+  project: {{ .Values.spec.project }}
   source:
-    repoURL: { { .Values.spec.source.repoURL } }
-    targetRevision: { { .Values.spec.source.targetRevision } }
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
     path: apps/storage
     helm:
       valueFiles:
         - values.yaml
   destination:
-    server: { { .Values.spec.destination.server } }
+    server: {{ .Values.spec.destination.server }}
     namespace: storage
   syncPolicy:
     automated:
