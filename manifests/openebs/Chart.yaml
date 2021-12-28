@@ -1,0 +1,7 @@
+apiVersion: v2
+name: openebs
+version: 0.0.1
+dependencies:
+  - name: openebs
+    version: 3.0.6
+    repository: https://openebs.github.io/charts

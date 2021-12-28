@@ -1,0 +1,3 @@
+openebs:
+  ndm:
+    enabled: false
