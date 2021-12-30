@@ -4,4 +4,4 @@ metallb:
     - name: k8s-ip-space
       protocol: layer2
       addresses:
-      - 192.168.1.51-192.168.1.99
+      - 172.24.1.20-172.24.1.30
