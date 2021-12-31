@@ -12,6 +12,6 @@ spec:
     metadata:
       creationTimestamp: null
       name: cloudflare-api-token
-      namespace: default
+      namespace: cert-manager
     type: Opaque
 
