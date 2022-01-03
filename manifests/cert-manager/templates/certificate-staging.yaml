@@ -1,16 +1,16 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: home-lcisp-it-staging
+  name: home-lcisp-it
   namespace: default
 spec:
-  secretName: home-lcisp-it-staging-secret
+  secretName: home-lcisp-it
   privateKey:
     rotationPolicy: Always
   dnsNames:
   - *.home.lcisp.it
   #- <app.mydomain.com>
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-live
     kind: ClusterIssuer
     group: cert-manager.io
