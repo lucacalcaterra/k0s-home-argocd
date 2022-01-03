@@ -10,7 +10,7 @@ traefik:
     - --certificatesresolvers.cloudflare.acme.email=calcaterra.luca@gmail.com
     #- --certificatesresolvers.cloudflare.acme.dnschallenge.resolvers=1.1.1.1
     - --certificatesresolvers.cloudflare.acme.storage=/certs/acme.json
-    - --certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+    #- --certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
     - --log.level=WARN
 
   ports:
