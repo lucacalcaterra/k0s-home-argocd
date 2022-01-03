@@ -1,1 +1,1 @@
-kubeseal --format=yaml < ~/ArgoCD-Secrets/cloudflare-api-token.yaml  > manifests/cert-manager/templates/cloudflare-api-token-sealed.yaml
+kubeseal --format=yaml < ~/ArgoCD-Secrets/cloudflare-api-credentials.yaml  > manifests/traefik-v2/templates/cloudflare-api-credentials-sealed.yaml

@@ -1,8 +1,64 @@
+
 traefik:
-  service:
-    annotations:
-      metallb.universe.tf/address-pool: traefik
-    #loadBalancerIP: 172.24.1.11
-    ingressRoute:
-      dashboard:
-        enabled: false
+  additionalArguments:
+    - --providers.kubernetescrd.allowCrossNamespace=true
+    - --providers.file.filename=/data/traefik-config.yaml
+    - --entrypoints.websecure.http.tls.certresolver=cloudflare
+    - --entrypoints.websecure.http.tls.domains[0].main=lcisp.it
+    - --entrypoints.websecure.http.tls.domains[0].sans=*.home.lcisp.it
+    - --certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare
+    - --certificatesresolvers.cloudflare.acme.email=calcaterra.luca@gmail.com
+    #- --certificatesresolvers.cloudflare.acme.dnschallenge.resolvers=1.1.1.1
+    - --certificatesresolvers.cloudflare.acme.storage=/certs/acme.json
+    - --certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+    - --log.level=WARN
+
+  ports:
+    web:
+      redirectTo: websecure
+  env:
+    - name: CF_API_EMAIL
+      valueFrom:
+        secretKeyRef:
+          key: email
+          name: cloudflare-api-credentials
+    - name: CF_API_KEY
+      valueFrom:
+        secretKeyRef:
+          key: apiKey
+          name: cloudflare-api-credentials
+  ingressRoute:
+    dashboard:
+      enabled: true
+  persistence:
+    enabled: true
+    name: certs
+    path: /certs
+    size: 128Mi
+    #annotations: {
+    #  "pv.beta.kubernetes.io/gid": "65532"
+    #}
+  # volumes:
+  #   - mountPath: /data
+  #     name: traefik-config
+  #     type: configMap
+  #podSecurityContext:
+  #  fsGroup: 65532
+
+    service:
+      annotations:
+        metallb.universe.tf/address-pool: traefik
+      #loadBalancerIP: 172.24.1.11
+      ingressRoute:
+        dashboard:
+          enabled: false
+  deployment:
+    initContainers:
+      # The "volume-permissions" init container is required if you run into permission issues.
+      # Related issue: https://github.com/traefik/traefik/issues/6972
+      - name: volume-permissions
+        image: busybox:1.31.1
+        command: ["sh", "-c", "chmod -Rv 600 /certs/*"]
+        volumeMounts:
+          - name: certs
+            mountPath: /certs
