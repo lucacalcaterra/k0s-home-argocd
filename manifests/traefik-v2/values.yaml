@@ -3,3 +3,6 @@ traefik:
     annotations:
       metallb.universe.tf/address-pool: traefik
     #loadBalancerIP: 172.24.1.11
+    ingressRoute:
+  dashboard:
+    enabled: true
