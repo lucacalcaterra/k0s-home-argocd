@@ -2,7 +2,7 @@
 traefik:
   additionalArguments:
     - --providers.kubernetescrd.allowCrossNamespace=true
-    - --providers.file.filename=/data/traefik-config.yaml
+    #- --providers.file.filename=/data/traefik-config.yaml
     - --entrypoints.websecure.http.tls.certresolver=cloudflare
     - --entrypoints.websecure.http.tls.domains[0].main=lcisp.it
     - --entrypoints.websecure.http.tls.domains[0].sans=*.home.lcisp.it
