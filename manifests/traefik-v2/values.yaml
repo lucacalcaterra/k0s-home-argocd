@@ -45,13 +45,13 @@ traefik:
   #podSecurityContext:
   #  fsGroup: 65532
 
-    service:
-      annotations:
-        metallb.universe.tf/address-pool: traefik
-      #loadBalancerIP: 172.24.1.11
-      ingressRoute:
-        dashboard:
-          enabled: false
+  service:
+    annotations:
+      metallb.universe.tf/address-pool: traefik
+    #loadBalancerIP: 172.24.1.11
+    ingressRoute:
+      dashboard:
+        enabled: false
   # deployment:
   #   initContainers:
   #     # The "volume-permissions" init container is required if you run into permission issues.
