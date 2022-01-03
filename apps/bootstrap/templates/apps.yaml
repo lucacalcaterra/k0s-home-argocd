@@ -18,7 +18,7 @@ spec:
         - values.yaml
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: infra
+    namespace: default
   syncPolicy:
     automated:
       prune: true
