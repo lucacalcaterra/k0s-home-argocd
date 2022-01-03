@@ -13,4 +13,4 @@ metadata:
       -
 provisioner: openebs.io/local
 reclaimPolicy: Delete
-volumeBindingMode: Immediate
+#volumeBindingMode: Immediate
