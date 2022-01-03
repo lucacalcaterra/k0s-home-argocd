@@ -1,0 +1,3 @@
+traefik:
+  service:
+    loadBalanderIP: 172.24.1.10
