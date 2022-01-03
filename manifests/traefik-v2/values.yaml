@@ -31,7 +31,7 @@ traefik:
     dashboard:
       enabled: true
   persistence:
-    enabled: true
+    enabled: false
     # name: certs
     path: /certs
     size: 128Mi
