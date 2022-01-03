@@ -9,7 +9,6 @@ spec:
     rotationPolicy: Always
   dnsNames:
   - *.home.lcisp.it
-  #- <app.mydomain.com>
   issuerRef:
     name: letsencrypt-live
     kind: ClusterIssuer
