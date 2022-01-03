@@ -8,6 +8,7 @@ spec:
   privateKey:
     rotationPolicy: Always
   dnsNames:
+  - lcisp.it
   - '*.home.lcisp.it'
   issuerRef:
     name: letsencrypt-live
