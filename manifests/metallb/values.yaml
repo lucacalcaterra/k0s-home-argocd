@@ -9,4 +9,5 @@ metallb:
       protocol: layer2
       addresses:
         - 172.24.1.10/32
+      auto-assign: false
 
