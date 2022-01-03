@@ -4,5 +4,5 @@ traefik:
       metallb.universe.tf/address-pool: traefik
     #loadBalancerIP: 172.24.1.11
     ingressRoute:
-  dashboard:
-    enabled: false
+      dashboard:
+        enabled: false
