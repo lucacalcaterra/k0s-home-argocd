@@ -8,5 +8,5 @@ metallb:
     - name: traefik
       protocol: layer2
       addresses:
-        - 172.24.1.11/32
+        - 172.24.1.10/32
 
