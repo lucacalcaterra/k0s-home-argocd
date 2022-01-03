@@ -4,4 +4,9 @@ metallb:
     - name: k8s-ip-space
       protocol: layer2
       addresses:
-      - 172.24.1.10-172.24.1.20
+      - 172.24.1.15-172.24.1.20
+    - name: traefik
+      protocol: layer2
+      addresses:
+      - 172.24.1.11
+
