@@ -12,4 +12,4 @@ metadata:
         value: /mnt/hdd2Tb/openebs      
 provisioner: openebs.io/local
 reclaimPolicy: Delete
-#volumeBindingMode: Immediate
+volumeBindingMode: WaitForFirstConsumer
