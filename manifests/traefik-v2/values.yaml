@@ -2,7 +2,7 @@
 traefik:
   pilot: 
     enabled: true
-    token: "bd5ba590-4523-4a01-86d8-ec9ec6deba0e"
+    token: "b5edb8a9-a94a-42e5-a20f-432e0b28c7d1"
   additionalArguments:
     - --providers.kubernetescrd.allowCrossNamespace=true
     #- --providers.file.filename=/data/traefik-config.yaml
