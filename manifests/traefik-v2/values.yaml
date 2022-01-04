@@ -32,7 +32,7 @@ traefik:
       enabled: true
   persistence:
     enabled: true
-    name: certs
+    #name: certs
     path: /certs
     size: 128Mi
     #annotations: {
