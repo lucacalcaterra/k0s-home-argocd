@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: openebs-on-2TbHdd
+  name: openebs-custom-local
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
     openebs.io/cas-type: local
