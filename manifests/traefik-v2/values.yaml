@@ -1,6 +1,7 @@
 
 traefik:
   pilot: 
+    enabled: true
     token: "6ddf1e27-8f75-429a-88b6-340b53a510c2"
   additionalArguments:
     - --providers.kubernetescrd.allowCrossNamespace=true
