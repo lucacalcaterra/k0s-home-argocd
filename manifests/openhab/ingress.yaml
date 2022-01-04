@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: openhab
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`openhab.home.lcisp.it`)
+      kind: Rule
+      middlewares:
+        #- name: headers-default@file
+        #- name: default-sso@kubernetescrd
+        #- name: openhabheaders
+      services:
+        - name: openhab
+          port: 8080
