@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-home-lcisp
+  namespace: argocd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`argocd.home.lcisp.it`)
+      kind: Rule
+      services:
+        - name: argocd-server
+          port: 8080
+      #middlewares:
+      #  - name: auth
