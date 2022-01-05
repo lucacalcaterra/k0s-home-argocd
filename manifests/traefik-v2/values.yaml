@@ -13,7 +13,7 @@ traefik:
     - --certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare
     - --certificatesresolvers.cloudflare.acme.email=calcaterra.luca@gmail.com
     #- --certificatesresolvers.cloudflare.acme.dnschallenge.resolvers=1.1.1.1
-    - --certificatesresolvers.cloudflare.acme.storage=/certs/acme.json
+    - --certificatesresolvers.cloudflare.acme.storage=/data/acme.json
     #- --certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
     - --log.level=WARN
 
@@ -37,7 +37,7 @@ traefik:
   persistence:
     enabled: true
     #name: certs
-    path: /certs
+    path: /data
     size: 128Mi
     #annotations: {
     #  "pv.beta.kubernetes.io/gid": "65532"
