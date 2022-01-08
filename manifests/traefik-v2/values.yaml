@@ -20,6 +20,11 @@ traefik:
   ports:
     web:
       redirectTo: websecure
+    websecure:
+      tls:
+        enabled: true
+    metrics:
+      expose: true
   env:
     - name: CF_API_EMAIL
       valueFrom:
