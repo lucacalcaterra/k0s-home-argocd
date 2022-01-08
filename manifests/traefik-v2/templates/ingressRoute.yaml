@@ -11,6 +11,8 @@ spec:
   routes:
     - match: Host(`traefik.home.lcisp.it`)
       kind: Rule
+      middlewares:
+        - name: gzip-compress
       services:
         - name: api@internal
           kind: TraefikService
