@@ -10,6 +10,7 @@ spec:
     - match: Host(`openhab.home.lcisp.it`)
       kind: Rule
       middlewares:
+        - name: gzip-compress
         #- name: headers-default@file
         #- name: default-sso@kubernetescrd
         #- name: openhabheaders
