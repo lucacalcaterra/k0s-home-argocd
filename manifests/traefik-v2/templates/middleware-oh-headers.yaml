@@ -1,0 +1,12 @@
+# disabled 
+
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: oh-headers
+# spec:
+#   headers:
+#     customRequestHeaders:
+#       X-Script-Name: "test"
+#     customResponseHeaders:
+#       X-Custom-Response-Header: "value"
