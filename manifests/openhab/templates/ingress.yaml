@@ -11,6 +11,7 @@ spec:
       kind: Rule
       middlewares:
         - name: gzip-compress
+          namespace: traefik
         #- name: headers-default@file
         #- name: default-sso@kubernetescrd
         #- name: openhabheaders
