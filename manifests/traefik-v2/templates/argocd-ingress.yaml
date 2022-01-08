@@ -11,7 +11,7 @@ spec:
     - match: Host(`argocd.home.lcisp.it`)
       kind: Rule
       middlewares:
-        - name: default-gzip-compress      
+        - name: gzip-compress@traefik
       services:
         - name: argocd-server
           port: 80
