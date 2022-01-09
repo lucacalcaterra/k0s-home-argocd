@@ -13,9 +13,9 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: manifests/traefik-forward-auth
-    helm:
-      valueFiles:
-        - values.yaml
+    #helm:
+    #  valueFiles:
+    #    - values.yaml
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: default
