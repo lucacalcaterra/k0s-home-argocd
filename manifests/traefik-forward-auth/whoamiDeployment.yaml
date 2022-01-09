@@ -1,0 +1,49 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whoami
+  namespace: default
+  labels:
+    app: whoami
+spec:
+  containers:
+    - name: whoami
+      image: containous/whoami:latest
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami
+  namespace: default
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: whoami
+  type: ClusterIP
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: whoami
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`whoami.home.lcisp.it`)
+      kind: Rule
+      middlewares:
+        # - name: headers-default@file
+        - name: default-sso@kubernetescrd
+      #namespace: default
+      services:
+        - name: whoami
+          namespace: default
+          port: 80
