@@ -1,0 +1,107 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik-sso
+  namespace: default
+  labels:
+    app: traefik-sso
+spec:
+  selector:
+    matchLabels:
+      app: traefik-sso
+  template:
+    metadata:
+      labels:
+        name: traefik-sso
+        app: traefik-sso
+    spec:
+      containers:
+        - name: traefik-sso
+          image: thomseddon/traefik-forward-auth
+          # ghcr.io/lucacalcaterra/traefik-forward-auth:arm
+          # image: npawelek/traefik-forward-auth:v2.2.0
+          imagePullPolicy: Always
+          env:
+            - name: PROVIDERS_GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: traefik-sso
+                  key: clientid
+            - name: PROVIDERS_GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: traefik-sso
+                  key: clientsecret
+            - name: SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: traefik-sso
+                  key: secret
+            - name: COOKIE_DOMAIN
+              value: home.lcisp.it
+            - name: AUTH_HOST
+              value: auth.home.lcisp.it
+            - name: INSECURE_COOKIE
+              value: "false"
+            # - name: URL_PATH
+            #   value: /_oauth
+            - name: WHITELIST
+              value: calcaterra.luca@gmail.com
+            - name: LOG_LEVEL
+              value: debug
+          ports:
+            - containerPort: 4181
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: kubernetes.io/hostname
+      #               operator: In
+      #               values:
+      #                 - tinkerboard
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-sso
+  namespace: default
+spec:
+  selector:
+    app: traefik-sso
+  ports:
+    - protocol: TCP
+      port: 4181
+      targetPort: 4181
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: sso
+  namespace: default
+spec:
+  forwardAuth:
+    address: http://traefik-sso.default.svc.cluster.local:4181
+    authResponseHeaders:
+      - "X-Forwarded-User"
+    trustForwardHeader: true
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-sso
+  namespace: default
+  #annotations:
+  #  kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`auth.home.lcisp.it`)
+      kind: Rule
+      services:
+        - name: traefik-sso
+          port: 4181
+      middlewares:
+        - name: default-sso@kubernetescrd
