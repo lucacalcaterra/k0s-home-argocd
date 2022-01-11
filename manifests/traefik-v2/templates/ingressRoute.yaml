@@ -13,6 +13,7 @@ spec:
       kind: Rule
       middlewares:
         - name: gzip-compress
+        - name: default-sso@kubernetescrd
       services:
         - name: api@internal
           kind: TraefikService
