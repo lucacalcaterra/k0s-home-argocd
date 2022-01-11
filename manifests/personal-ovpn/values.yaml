@@ -1,3 +1,5 @@
 personal-ovpn:
   automatic:
     enabled: true
+    persistence:
+      size: "500Mi"
