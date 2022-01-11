@@ -1,8 +1,8 @@
 personal-ovpn:
 
   service:
-    annotations:
-      metallb.universe.tf/address-pool: personalovpn
+    #annotations:
+    #  metallb.universe.tf/address-pool: personalovpn
     type: LoadBalancer
 
   automatic:
