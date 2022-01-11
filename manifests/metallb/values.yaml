@@ -10,11 +10,11 @@ metallb:
       addresses:
         - 172.24.1.10/32
       auto-assign: false
-    #- name: personalovpn
-    #  protocol: layer2
-    #  addresses:
-    #    - 172.24.1.11/32
-    #  auto-assign: false
+    - name: personalovpn
+      protocol: layer2
+      addresses:
+        - 172.24.1.11/32
+      auto-assign: false
     - name: mosquitto
       protocol: layer2
       addresses:
