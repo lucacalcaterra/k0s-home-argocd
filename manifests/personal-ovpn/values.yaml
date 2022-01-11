@@ -4,7 +4,7 @@ personal-ovpn:
     #annotations:
     #  metallb.universe.tf/address-pool: personalovpn
     type: LoadBalancer
-    #loadBalancerIP: 172.24.1.11
+    loadBalancerIP: 172.24.1.16
 
   automatic:
     # enabled: true
