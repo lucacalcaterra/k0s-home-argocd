@@ -6,6 +6,6 @@ personal-ovpn:
   #   type: LoadBalancer
 
   automatic:
-    enabled: true
+    # enabled: true
     persistence:
       size: "500Mi"
