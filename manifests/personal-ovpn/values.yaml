@@ -1,4 +1,11 @@
 personal-ovpn:
+
+  service:
+    annotations:
+      metallb.universe.tf/address-pool: personal-ovpn
+    main:
+      type: LoadBalancer
+
   automatic:
     enabled: true
     persistence:

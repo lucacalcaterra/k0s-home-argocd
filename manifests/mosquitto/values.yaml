@@ -1,5 +1,7 @@
 mosquitto: 
   service:
+    annotations:
+      metallb.universe.tf/address-pool: mosquitto
     main:
       type: LoadBalancer
   spec:
