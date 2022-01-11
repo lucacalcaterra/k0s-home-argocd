@@ -1,0 +1,3 @@
+personal-ovpn:
+  automatic:
+    enabled: true

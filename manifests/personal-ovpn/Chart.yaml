@@ -1,0 +1,7 @@
+apiVersion: v2
+name: personal-ovpn
+version: 0.0.1
+dependencies:
+- name: personal-ovpn
+  version: 0.2.2
+  repository: https://suda.github.io/charts/
