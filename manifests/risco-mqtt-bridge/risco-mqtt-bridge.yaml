@@ -42,10 +42,7 @@ spec:
       volumes:
         - name: risco-mqtt-bridge
           persistentVolumeClaim:
-            claimName: risco-mqtt-bridge
-        - name: risco-mqtt-bridge
-          persistentVolumeClaim:
-            claimName: risco-mqtt-bridge
+            claimName: risco-mqtt-bridge        
 status: {}
 
 ---
