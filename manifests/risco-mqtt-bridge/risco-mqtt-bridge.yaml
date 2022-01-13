@@ -35,14 +35,14 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /app/config/config.js
-              name: risco-mqtt-bridge
-            - mountPath: /app/logs
-              name: risco-mqtt-bridge
+              name: risco-mqtt-bridge-config
+            #- mountPath: /app/logs
+            #  name: risco-mqtt-bridge
       restartPolicy: Always
       volumes:
-        - name: risco-mqtt-bridge
+        - name: risco-mqtt-bridge-config
           persistentVolumeClaim:
-            claimName: risco-mqtt-bridge        
+            claimName: risco-mqtt-bridge-config
 status: {}
 
 ---
@@ -51,7 +51,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     io.kompose.service: risco-mqtt-bridge
-  name: risco-mqtt-bridge
+  name: risco-mqtt-bridge-config
 spec:
   accessModes:
     - ReadWriteOnce
