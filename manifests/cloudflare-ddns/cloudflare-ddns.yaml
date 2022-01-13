@@ -1,0 +1,35 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cloudflare-ddns
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cloudflare-ddns
+              image: mirioeggmann/cloudflare-ddns:latest
+              env:
+              - name: ZONE_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: cloudflare-ddns
+                    key: zone-id
+              - name: RECORD_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: cloudflare-ddns
+                    key: record-id
+              - name: AUTH_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: cloudflare-ddns
+                    key: auth-key
+              - name: NAME
+                valueFrom:
+                  secretKeyRef:
+                    name: cloudflare-ddns
+                    key: name
+          restartPolicy: OnFailure
