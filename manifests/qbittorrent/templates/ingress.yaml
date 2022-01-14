@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: qbittorrent
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`qbittorrent.home.lcisp.it`)
+      kind: Rule
+      middlewares:
+        - name: gzip-compress
+          namespace: traefik
+        #- name: headers-default@file
+        #- name: default-sso@kubernetescrd
+        #- name: openhabheaders
+      services:
+        - name: qbittorrent
+          port: 8080

@@ -1,0 +1,24 @@
+qbittorrent:
+  persistence:
+    media:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      mountPath: /media
+    downloads:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 10Gi
+      mountPath: /downloads
+    # per comunicare vpn e qbt quando vpn pronta
+    config:
+      enabled: true
+      # type: emptyDir
+      # mountPath: /config
+      # accessMode: ReadWriteOnce
+      # size: 1Gi
+      # mountPath: /qBittorrent
+    shared:
+      enabled: true
+      type: emptyDir
+      mountPath: /shared
