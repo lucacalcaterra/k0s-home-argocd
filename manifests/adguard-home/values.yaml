@@ -8,8 +8,10 @@ adguard-home:
       enabled: true
       mountPath: /opt/adguardhome/conf
       accessMode: ReadWriteOnce
+      size: 200Mi
     data:
       enabled: true
       mountPath: /opt/adguardhome/work
       accessMode: ReadWriteOnce
+      size: 1Gi
 
