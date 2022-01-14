@@ -1,0 +1,22 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: adguard-home-lcisp
+  namespace: infra
+spec:
+  entryPoints:
+    #- web
+    - websecure
+  routes:
+    - match: Host(`adguard.home.lcisp.it`)
+      kind: Rule
+      middlewares:
+        - name: gzip-compress
+        #- name: default-sso@kubernetescrd
+      services:
+        - name: adguard-home
+          port: 3000
+          #kind: TraefikService
+      #middlewares:
+      #  - name: auth
