@@ -12,7 +12,7 @@ spec:
     - match: Host(`adguard.home.lcisp.it`)
       kind: Rule
       middlewares:
-        #- name: gzip-compress
+        - name: gzip-compress@traefik
         #- name: default-sso@kubernetescrd
       services:
         - name: adguard-home
