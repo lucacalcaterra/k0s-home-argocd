@@ -1,0 +1,6 @@
+adguard-home: 
+  
+  env:
+    TZ: "Europe/Rome"
+    
+
