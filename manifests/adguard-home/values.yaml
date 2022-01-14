@@ -4,9 +4,9 @@ adguard-home:
     TZ: "Europe/Rome"
     
   persistence:
-  config:
-    enabled: true
-    mountPath: /opt/adguardhome/conf
-  data:
-    enabled: true
-    mountPath: /opt/adguardhome/work
+    config:
+      enabled: true
+      mountPath: /opt/adguardhome/conf
+    data:
+      enabled: true
+      mountPath: /opt/adguardhome/work
