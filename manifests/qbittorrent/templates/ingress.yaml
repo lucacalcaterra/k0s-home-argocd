@@ -13,8 +13,8 @@ spec:
         - name: gzip-compress
           namespace: traefik
         #- name: headers-default@file
-        #- name: default-sso@kubernetescrd
-        #- name: openhabheaders
+        - name: default-sso@kubernetescrd
+        
       services:
         - name: qbittorrent
           port: 8080
