@@ -1,8 +1,9 @@
 adguard-home: 
   service:
-    annotations:
-      metallb.universe.tf/address-pool: adguard
-      metallb.universe.tf/allow-shared-ip: adguard
+    metadata:
+      annotations:
+        metallb.universe.tf/address-pool: adguard
+        metallb.universe.tf/allow-shared-ip: adguard
     dns-tcp:
       type: LoadBalancer
   
