@@ -15,7 +15,7 @@ traefik:
     #- --certificatesresolvers.cloudflare.acme.dnschallenge.resolvers=1.1.1.1
     - --certificatesresolvers.cloudflare.acme.storage=/data/acme.json
     #- --certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
-    - --log.level=WARN
+    - --log.level=DEBUG
 
   ports:
     web:
