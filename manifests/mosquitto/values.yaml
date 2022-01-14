@@ -1,13 +1,13 @@
 mosquitto: 
   service:
     annotations:
-      metallb.universe.tf/address-pool: mosquitto
-    main:
-      type: LoadBalancer
-  spec:
+      #metallb.universe.tf/address-pool: mosquitto
+    #main:
+      #type: LoadBalancer
+  #spec:
     # Request this permanent IP address for traefik with MetalLB.
     # Kubernetes Master Node has this ip address mapped in /etc/avahi/hosts
-    loadBalancerIP: 172.24.1.12
+    #loadBalancerIP: 172.24.1.12
   env:
     TZ: "Europe/Rome"
 

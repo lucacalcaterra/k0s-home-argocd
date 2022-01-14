@@ -14,10 +14,10 @@ metallb:
     #   protocol: layer2
     #   addresses:
     #     - 172.24.1.11/32
-      auto-assign: false
-    - name: mosquitto
-      protocol: layer2
-      addresses:
-        - 172.24.1.15/32
-      auto-assign: false
+    #  auto-assign: false
+    #- name: adguard-home
+    #  protocol: layer2
+    #  addresses:
+    #    - 172.24.1.15/32
+    #  auto-assign: false
 
