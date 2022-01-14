@@ -7,6 +7,9 @@ adguard-home:
     config:
       enabled: true
       mountPath: /opt/adguardhome/conf
+      accessMode: ReadWriteOnce
     data:
       enabled: true
       mountPath: /opt/adguardhome/work
+      accessMode: ReadWriteOnce
+
