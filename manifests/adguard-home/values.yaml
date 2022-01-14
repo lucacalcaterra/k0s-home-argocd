@@ -3,4 +3,10 @@ adguard-home:
   env:
     TZ: "Europe/Rome"
     
-
+  persistence:
+  config:
+    enabled: true
+    mountPath: /opt/adguardhome/conf
+  data:
+    enabled: true
+    mountPath: /opt/adguardhome/work
