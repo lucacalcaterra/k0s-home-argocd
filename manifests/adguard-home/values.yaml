@@ -3,7 +3,8 @@ adguard-home:
     annotations:
       metallb.universe.tf/address-pool: adguard
       metallb.universe.tf/allow-shared-ip: adguard
-    type: LoadBalancer
+    dns-tcp:
+      type: LoadBalancer
   
   env:
     TZ: "Europe/Rome"
