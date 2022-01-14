@@ -3,19 +3,19 @@ adguard-home:
     
     main:
       type: LoadBalancer
-      loadBalancerIP: 172.24.1.11
+      #loadBalancerIP: 172.24.1.11
       annotations:
         metallb.universe.tf/address-pool: adguard-home
         metallb.universe.tf/allow-shared-ip: adguard
     dns-tcp:
       type: LoadBalancer
-      loadBalancerIP: 172.24.1.11
+      #loadBalancerIP: 172.24.1.11
       annotations:
         metallb.universe.tf/address-pool: adguard-home
         metallb.universe.tf/allow-shared-ip: adguard
     dns-udp:
       type: LoadBalancer
-      loadBalancerIP: 172.24.1.11
+      #loadBalancerIP: 172.24.1.11
       annotations:
         metallb.universe.tf/address-pool: adguard-home
         metallb.universe.tf/allow-shared-ip: adguard
