@@ -6,3 +6,5 @@ metadata:
   name: routed-vpn
   labels:
     routed-gateway: "true"
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
