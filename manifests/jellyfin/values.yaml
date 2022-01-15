@@ -1,0 +1,53 @@
+jellyfin:
+  #service:
+  #main:
+  #  type: LoadBalancer
+
+  persistence:
+    config:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 50Gi
+      #persistentVolumeReclaimPolicy: Retain
+    cache:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 10Gi
+      mountPath: /cache
+    media:
+      enabled: false
+      mountPath: /media
+    # omvnfsmedia:
+    #   enabled: true
+    #   type: custom
+    #   volumeSpec:
+    #     nfs:
+    #       server: 172.24.1.6
+    #       path: /dati/media
+    #   mountPath: /omvNfsMedia
+    #media:
+    #enabled: true
+    #mountPath: /media
+  env:
+    TZ: "Europe/Rome"
+    USER_ID: 1000
+    GROUP_ID: 1000
+  #podSecurityContext:
+  #  runAsUser: 1000
+  #  runAsGroup: 1000
+  #  fsGroup: 1000
+
+
+  # resources:
+  #   requests:
+  #     # Hardware acceleration using an Intel iGPU w/ QuickSync and
+  #     # using intel-gpu-plugin (https://github.com/intel/intel-device-plugins-for-kubernetes)
+  #     gpu.intel.com/i915: 1
+  #     cpu: 200m
+  #     memory: 256Mi
+
+  #   limits:
+  #     # Hardware acceleration using an Intel iGPU w/ QuickSync and
+  #     # using intel-gpu-plugin (https://github.com/intel/intel-device-plugins-for-kubernetes)
+  #     gpu.intel.com/i915: 1
+  #     memory: 4096Mi

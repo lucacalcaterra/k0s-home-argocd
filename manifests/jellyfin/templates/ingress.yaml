@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jellyfin
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`jellyfin.home.lcisp.it`)
+      kind: Rule
+      middlewares:
+        - name: gzip-compress
+          namespace: traefik
+        #- name: headers-default@file
+        #- name: default-sso@kubernetescrd
+        #- name: openhabheaders
+      services:
+        - name: jellyfin
+          port: 8096
