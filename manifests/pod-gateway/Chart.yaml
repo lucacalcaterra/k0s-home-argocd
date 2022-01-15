@@ -1,0 +1,7 @@
+apiVersion: v2
+name: pod-gateway
+version: 0.0.1
+dependencies:
+- name: pod-gateway
+  version: 5.2.0
+  repository: https://k8s-at-home.com/charts/
