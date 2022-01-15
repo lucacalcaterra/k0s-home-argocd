@@ -23,12 +23,12 @@ qbittorrent:
       type: emptyDir
       mountPath: /shared
 
-    addons:
-      vpn:
-        enabled: true
-        # You might use `openvpn` or `wireguard`
-        type: openvpn
-        openvpn:
-        # VPN settings stored in secret `vpnConfig`. The secret mus have a key
-        # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
-        configFileSecret: qbittorrent-vpn-config
+  addons:
+    vpn:
+      enabled: true
+      # You might use `openvpn` or `wireguard`
+      type: openvpn
+      openvpn:
+      # VPN settings stored in secret `vpnConfig`. The secret mus have a key
+      # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
+      configFileSecret: qbittorrent-vpn-config
