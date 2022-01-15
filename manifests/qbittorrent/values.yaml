@@ -38,9 +38,10 @@ qbittorrent:
       # You might use `openvpn` or `wireguard`
       type: openvpn
       openvpn:
-      # VPN settings stored in secret `vpnConfig`. The secret mus have a key
-      # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
-      configFileSecret: qbittorrent-vpn-config
+        # VPN settings stored in secret `vpnConfig`. The secret mus have a key
+        # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
+        authSecret: qbittorrent-vpn-auth
+        configFileSecret: qbittorrent-vpn-config
       securityContext:
         runAsGroup: 0
         runAsUser: 0
