@@ -7,7 +7,7 @@ jellyfin:
     config:
       enabled: true
       accessMode: ReadWriteOnce
-      size: 50Gi
+      size: 10Gi
       #persistentVolumeReclaimPolicy: Retain
     cache:
       enabled: true
@@ -15,8 +15,10 @@ jellyfin:
       size: 10Gi
       mountPath: /cache
     media:
-      enabled: false
+      enabled: true
       mountPath: /media
+      accessMode: ReadWriteOnce
+      size: 50Gi
     # omvnfsmedia:
     #   enabled: true
     #   type: custom
