@@ -4,4 +4,4 @@ pod-gateway:
     USER_ID: 1000
     GROUP_ID: 1000
   routed_namespaces:
-  - vpn
+  - routed-vpn
