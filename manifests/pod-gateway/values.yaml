@@ -5,3 +5,5 @@ pod-gateway:
     GROUP_ID: 1000
   routed_namespaces:
   - routed-vpn
+  settings:
+    NOT_ROUTED_TO_GATEWAY_CIDRS: "172.24.1.0/24"
