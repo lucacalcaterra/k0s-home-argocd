@@ -1,10 +1,10 @@
-# namespace.yaml
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: routed-vpn
-  labels:
-    routed-gateway: "true"
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+# # namespace.yaml
+# ---
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: routed-vpn
+#   labels:
+#     routed-gateway: "true"
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
