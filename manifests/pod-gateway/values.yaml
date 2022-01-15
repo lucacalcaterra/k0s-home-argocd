@@ -6,4 +6,4 @@ pod-gateway:
   routed_namespaces:
   - routed-vpn
   settings:
-    NOT_ROUTED_TO_GATEWAY_CIDRS: "172.24.1.0/24"
+    NOT_ROUTED_TO_GATEWAY_CIDRS: "172.22.0.0/16 172.24.0.0/16 10.244.0.0/16"
