@@ -32,3 +32,13 @@ qbittorrent:
       # VPN settings stored in secret `vpnConfig`. The secret mus have a key
       # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
       configFileSecret: qbittorrent-vpn-config
+  scripts:
+    up: |-
+      #!/bin/bash
+      /etc/openvpn/up.sh
+      echo "connected" > /shared/vpnstatus
+
+    down: |-
+      #!/bin/bash
+      /etc/openvpn/down.sh
+      echo "disconnected" > /shared/vpnstatus
