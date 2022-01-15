@@ -1,0 +1,4 @@
+intel-gpu-plugin:
+  env:
+    TZ: "Europe/Rome"
+    
