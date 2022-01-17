@@ -32,8 +32,8 @@ jellyfin:
     #mountPath: /media
   env:
     TZ: "Europe/Rome"
-    #USER_ID: 1000
-    #GROUP_ID: 1000
+    PUID: 1000
+    GUID: 1000
   #podSecurityContext:
   #  runAsUser: 1000
   #  runAsGroup: 1000
