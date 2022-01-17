@@ -2,7 +2,14 @@ jellyfin:
   #service:
   #main:
   #  type: LoadBalancer
-
+  image:
+    # -- image repository
+    repository: jellyfin/jellyfin
+    # -- image tag
+    tag: latest
+    # -- image pull policy
+    pullPolicy: IfNotPresent
+    
   persistence:
     config:
       enabled: true
