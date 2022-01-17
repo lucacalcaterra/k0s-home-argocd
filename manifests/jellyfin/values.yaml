@@ -4,7 +4,7 @@ jellyfin:
   #  type: LoadBalancer
   image:
     # -- image repository
-    repository: jellyfin/jellyfin
+    repository: linuxserver/jellyfin
     # -- image tag
     tag: latest
     # -- image pull policy
