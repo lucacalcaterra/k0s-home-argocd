@@ -4,12 +4,12 @@ jellyfin:
   #  type: LoadBalancer
   image:
     # -- image repository
-    repository: linuxserver/jellyfin
+    repository: jellyfin/jellyfin
     # -- image tag
-    tag: latest
+    tag: 10.7.7
     # -- image pull policy
     pullPolicy: IfNotPresent
-    
+
   persistence:
     config:
       enabled: true
@@ -54,7 +54,6 @@ jellyfin:
 #   supplementalGroups:
 #   - 44
 #   - 109
-
 
 
   resources:
