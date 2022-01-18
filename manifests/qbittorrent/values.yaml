@@ -16,7 +16,7 @@ qbittorrent:
       volumeSpec:
         nfs:
           server: 172.24.1.5
-          path: /shared-downloads/torrents
+          path: /shared-downloads
       mountPath: /omvNfsTorrents
    
     # per comunicare vpn e qbt quando vpn pronta
