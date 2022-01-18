@@ -3,3 +3,5 @@ openebs:
     enabled: false
   ndm:
     enabled: false
+  nfs-provisioner:
+    enabled: true
