@@ -26,6 +26,15 @@ jellyfin:
       mountPath: /media
       accessMode: ReadWriteOnce
       size: 50Gi
+    omvnfsmedia:
+      enabled: true
+      type: custom
+      volumeSpec:
+        nfs:
+          server: 172.24.1.5
+          path: /dati/media
+      mountPath: /omvNfsMedia
+
     # omvnfsmedia:
     #   enabled: true
     #   type: custom
