@@ -26,14 +26,14 @@ jellyfin:
       mountPath: /media
       accessMode: ReadWriteOnce
       size: 50Gi
-    omvnfsmedia:
+    omvnftorrents:
       enabled: true
       type: custom
       volumeSpec:
         nfs:
           server: 172.24.1.5
-          path: /dati/media
-      mountPath: /omvNfsMedia
+          path: /shared-downloads
+      mountPath: /omvNfsTorrents
 
     # omvnfsmedia:
     #   enabled: true
