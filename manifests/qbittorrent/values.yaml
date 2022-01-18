@@ -10,7 +10,7 @@ qbittorrent:
     #  accessMode: ReadWriteOnce
     #  size: 10Gi
     #  mountPath: /downloads
-    omvnfstorrents:
+    downloads:
       enabled: true
       type: custom
       volumeSpec:
