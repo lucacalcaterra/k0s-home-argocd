@@ -18,6 +18,14 @@ qbittorrent:
           server: 172.24.1.5
           path: /shared-downloads
       mountPath: /omvNfsTorrents
+    
+    test-rwx:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: openebs-rwx
+      size: 1Gi
+      mountPath: /test-rwx      
+      
    
     # per comunicare vpn e qbt quando vpn pronta
     config:
