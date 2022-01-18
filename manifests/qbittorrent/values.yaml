@@ -5,11 +5,20 @@ qbittorrent:
       accessMode: ReadWriteOnce
       size: 1Gi
       mountPath: /media
-    downloads:
+    #downloads:
+    #  enabled: true
+    #  accessMode: ReadWriteOnce
+    #  size: 10Gi
+    #  mountPath: /downloads
+    omvnfstorrents:
       enabled: true
-      accessMode: ReadWriteOnce
-      size: 10Gi
-      mountPath: /downloads
+      type: custom
+      volumeSpec:
+        nfs:
+          server: 172.24.1.5
+          path: /dati/torrents
+      mountPath: /omvNfsTorrents
+   
     # per comunicare vpn e qbt quando vpn pronta
     config:
       enabled: true
