@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: whoami-test
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: whoami
+    repoURL: https://cowboysysop.github.io/charts/
+    targetRevision: 2.5.2
+    helm:
+      releaseName: whoami-test
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
